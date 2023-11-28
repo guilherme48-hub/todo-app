@@ -23,7 +23,7 @@ body{
 }
 
 
-header {
+header{
     background-image:var(--bg-header-mobile);
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,7 +33,7 @@ header {
     padding: 3rem 1.75rem 0;
 }
 
-header div {
+header div{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,7 +41,7 @@ header div {
 }
 
 
-header div h1 {
+header div h1{
     color: #fff ;
     text-transform: uppercase;
 }
@@ -73,12 +73,12 @@ header form button{
 }
 
 
-main {
+main{
     min-height: calc(100vh - 12.5rem);
     padding-inline: 1.75rem;
 }
 
-.tarefas {
+.tarefas{
     background: var(--bg-tarefa);
     box-shadow: var(--box-shadow);
     border-radius: 0.3125rem;
@@ -109,12 +109,12 @@ main {
     font-size: 0.75rem;
 }
 
-.tarefa button {
+.tarefa button{
     border: none ;
     background: none;
 }
 
-.informacoes {
+.info{
     border-top: 1px solid var(--boder-color);
     padding: 1rem 1.25 rem;
     display: flex;
@@ -123,8 +123,24 @@ main {
     color: var(--info-text-color);
 }
 
-.informacoes a {
+.info a,
+.botoes a{
     text-decoration: none;
     color: var(--info-text-color);
 
 }
+
+.botoes{
+    padding-block: 1rem;
+    background: var(--bg-tarefa);
+    border-radius: 0.3125rem;
+    margin-top: 1rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+
+    font-size: 0.875rem;
+}
+
+
