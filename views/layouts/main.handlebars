@@ -9,21 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">  
     <title>ToDo app</title>
 </head>
-<body class="dark" >
+<body>
     <header>
-      <div>
-         <div>
-         <h1>To DO</h1>
-         <img src="/imagens/moon-icon.png" alt="lua">
-       </div>
+        <div>
+            <div>
+                <h1>To DO</h1>
+                <!-- Corrigido de conclick para onclick -->
+                <button class="tema-button" onclick="alterarTema()">
+                    <img src="/imagens/moon-icon.png" alt="lua">
+                </button>
+            </div>
 
-       <form action="">
-        <input type="text" id="nova-tarefa" placeholder="criar uma nova tarefa" name="novaTarefa">
-        <button type="submit">criar</button>
-       </form>
-      </div>
+            <form action="">
+                <input type="text" id="nova-tarefa" placeholder="criar uma nova tarefa" name="novaTarefa">
+                <button type="submit">criar</button>
+            </form>
+        </div>
     </header>
 
     {{{body}}}
+
+    <script src="/js/script.js"></script>
 </body>
 </html>
+
