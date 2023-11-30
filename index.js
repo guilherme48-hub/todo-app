@@ -34,6 +34,24 @@ app.post('/criar', (requisicao, resposta) => {
 });
 
 app.get('/', (requisicao, resposta) => {
+
+    const sql = 'SELECT* FROM tarefas'
+
+
+conexao.query(sql,(erro,dados) =>{
+    if (erro) {
+        return console.log(erro)
+    }
+
+    const tarefa = dados.map((dados) =>{
+        return {
+            id :dados.id,
+            descricao: dados.descricao,
+            completa: dados.completa ===0 ? false : true
+        }
+    })
+})
+
     resposta.render('home');
 });
 
