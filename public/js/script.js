@@ -1,15 +1,36 @@
 function completaTarefa(id) {
     fetch("http://localhost:3000/completar", {
-        method: "post", 
+        method: "post",
         headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify({ id })
+    })
+    .then(() => {
+        console.log('Tarefa completada com sucesso!');
+        window.location.reload();
+    })
+    .catch((erro) => {
+        console.error('Erro ao completar a tarefa:', erro);
     });
-
-    window.location.reload()
 }
 
+function descompletarTarefa(id) {
+    fetch("http://localhost:3000/descompletar", {
+        method: "post",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id })
+    })
+    .then(() => {
+        console.log('Tarefa descompletada com sucesso!');
+        window.location.reload();
+    })
+    .catch((erro) => {
+        console.error('Erro ao descompletar a tarefa:', erro);
+    });
+}
 
 function alterarTema() {
     const tema = localStorage.getItem("tema");
@@ -56,7 +77,3 @@ function verificarTema() {
 }
 
 verificarTema();
-
-
-
-        

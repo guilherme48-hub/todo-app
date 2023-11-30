@@ -44,6 +44,24 @@ app.post('/completar', (requisicao, resposta) => {
     });
 });
 
+app.post('/descompletar', (requisicao, resposta) => {
+    const id = requisicao.body.id;
+
+    const sql = `
+        UPDATE tarefas
+        SET completa = '0'
+        WHERE id = ${id};
+    `;
+
+    conexao.query(sql, (erro) => {
+        if (erro) {
+            return console.log(erro);
+        }
+
+        resposta.redirect('/');
+    });
+});
+
 app.post('/criar', (requisicao, resposta) => {
     const descricao = requisicao.body.descricao;
     const completa = 0;
@@ -77,10 +95,16 @@ app.get('/', (requisicao, resposta) => {
                 completa: dados.completa === 0 ? false : true
             };
         });
+        const tarefaAtivas = tarefa.filter((tarefa)=>{
+            return tarefa.completa === false && tarefa
+        })
 
-        resposta.render('home', { tarefa });
+        const quantidadeTarefaAtivas = tarefaAtivas.lenght
+
+        resposta.render('home', { tarefa, quantidadeTarefaAtivas });
     });
 });
+
 
 app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000");
