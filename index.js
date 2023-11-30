@@ -50,9 +50,11 @@ conexao.query(sql,(erro,dados) =>{
             completa: dados.completa ===0 ? false : true
         }
     })
+
+    resposta.render('home', {tarefa});
 })
 
-    resposta.render('home');
+   
 });
 
 const conexao = mysql.createConnection({
